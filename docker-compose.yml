@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  db_postgres_students:
+    image: postgres
+    container_name: db_postgres_students
+    restart: always #container reinicia se morrer
+    ports:
+      - 2345:5432
+    env_file:
+      - .env
+    volumes:
+      - pg_students:/var/lib/postgresql/data
+    
+  node_app:
+    container_name: node_students
+    build: .
+    ports:
+      - 5000:5000
+    depends_on:
+      - db_postgres_students
+    env_file:
+      - .env
+
+volumes:
+  pg_students:
