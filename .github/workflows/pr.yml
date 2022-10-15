@@ -10,8 +10,8 @@ jobs:
         uses: SpicyPizza/create-envfile@v1
 				#precisamos criar um .env file por que o nosso está no gitignore
         with:
-          envkey_POSTGRES_USER: "postgres"
           envkey_POSTGRES_PASSWORD: "postgres"
+          envkey_POSTGRES_USER: "postgres"
           envkey_POSTGRES_DB: "students-test"
           envkey_DATABASE_URL: "postgres://postgres:postgres@db_postgres_students:5432/students-test"
           file_name: .env.test
